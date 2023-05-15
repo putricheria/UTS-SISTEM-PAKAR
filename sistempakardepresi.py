@@ -5,6 +5,9 @@ from tabulate import tabulate
 print('+---------------------------------------+')
 print('|\tSelamat datang di sistem pakar\t|')
 print('|\tTingkat Depresi pada remaja\t|')
+print('+---------------------------------------+')
+nama = input("Nama : \t ")
+pilihan = input("Hai,"+nama+"\n Apakah anda ingin melakukan diagnosa depresi ? (Y/N)")
 
 diseases = [['C1','Gangguan mood'],
 ['C2','Depresi ringan'],
@@ -15,7 +18,7 @@ diseases = [['C1','Gangguan mood'],
 symptons=[
 ['A1',	'Sedih'],
 ['A2',	'Kelelahan melakukan aktivitas'],
-['A3', 'kurang berkonsentrasi'],
+['A3',  'kurang berkonsentrasi'],
 ['A4',	'Bosan atau jenuh'],
 ['A5',	'Sering melamun'],
 ['A6',	'Tidak bersemangat'],
@@ -97,30 +100,30 @@ def diagnose(sy):
         elif sy[0] == 'G1' and sy[1] == 'G9' and sy[2] == 'G10' and sy[3] == 'G12' and sy[4] == 'G13' and sy[5] == 'G16' and sy[6] == 'G18' and sy[7] == 'G19' and sy[8] == 'G20' and sy[9] == 'G21' and sy[10] == 'G24' and sy[11] == 'G25' and sy[12] == 'G26' and sy[13] == 'G27' and sy[14] == 'G28' and sy[15] == 'G29':
             return diseases[3]
         
+while pilihan == "Y":
+    def main():
+        print('--------------------------------------------------------------------------')
+        print('silahkan pilih menu dibawah :')
+        print('1. Tampilkan daftar gejala')
+        print('2. Masukkan gejala yang dialami')
+        print('3. Tampilkan kode gejala yang dialami')
+        print('4. Tampilkan diagnosa')
+        print('5. keluar')
+        choice = int(input('Masukkan pilihan : '))
+        print('--------------------------------------------------------------------------')
+        if choice == 1:
+            show_symptoms()
+        elif choice == 2:
+            add_symptoms()
+        elif choice == 3:
+            show_pt_symptoms()
+        elif choice == 4:
+            disease = diagnose(patient_symp)
+            print('Anda mengalami : ',disease[1])
+            patient_symp.clear()
+            main() 
+        elif choice == 5:
+            exit()
+            print('--------------------------------------------------------------------------')
 
-def main():
-    print('+---------------------------------------+')
-    print('silahkan pilih menu dibawah :')
-    print('1. Tampilkan daftar gejala')
-    print('2. Masukkan gejala yang dialami')
-    print('3. Tampilkan kode gejala yang dialami')
-    print('4. Tampilkan diagnosa')
-    print('5. keluar')
-    choice = int(input('Masukkan pilihan : '))
-    print('------------------------------')
-    if choice == 1:
-        show_symptoms()
-    elif choice == 2:
-        add_symptoms()
-    elif choice == 3:
-        show_pt_symptoms()
-    elif choice == 4:
-        disease = diagnose(patient_symp)
-        print('Anda mengalami : ',disease[1])
-        patient_symp.clear()
-        main() 
-    elif choice == 5:
-        exit()
-        print('+---------------------------------------+')    
-
-main()
+    main()
